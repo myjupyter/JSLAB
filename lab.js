@@ -56,7 +56,7 @@ function main() {
   }
 
   // 
-  gl.clearColor(0.0, 0.0, 0.0, 0.0);
+  gl.clearColor(0.0, 0.0, 0.0, 1.0);
   gl.enable(gl.DEPTH_TEST);
 
   // 
@@ -70,11 +70,11 @@ function main() {
   let mvpMatrix = mat4.create();
   let m         = mat4.create();
   // настройка перспективы
-  mat4.perspective(m, 1.5, 1, 1, 0);
+  mat4.perspective(m, 0.5, 1, 1, 0);
   // настройка взгляда на объект
-  mat4.lookAt(mvpMatrix, [2, 2, 2],
-                         [1, 1, 1],
-                         [3, 3, 4]);
+  mat4.lookAt(mvpMatrix, [7, 7, 7],
+                         [0, 0, 0],
+                         [0, 1, 0]);
   mat4.multiply(mvpMatrix, m, mvpMatrix);
   var u_AL =  gl.getUniformLocation(gl.program, 'u_AL');
   var u_LC =  gl.getUniformLocation(gl.program, 'u_LC');
